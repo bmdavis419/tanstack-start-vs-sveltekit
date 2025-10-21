@@ -1,0 +1,44 @@
+{
+  "files.watcherExclude": {
+    "**/routeTree.gen.ts": true
+  },
+  "search.exclude": {
+    "**/routeTree.gen.ts": true
+  },
+  "files.readonlyInclude": {
+    "**/routeTree.gen.ts": true
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  },
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  },
+  "[css]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  },
+  "editor.codeActionsOnSave": {
+    "source.organizeImports.biome": "explicit"
+  },
+  "workbench.colorCustomizations": {
+    "editorGroupHeader.tabsBackground": "#1e3a5f",
+    "editorGroupHeader.tabsBorder": "#1e3a5f",
+    "tab.activeBackground": "#1e3a5f",
+    "tab.inactiveBackground": "#0f1a2e",
+    "editorGroupHeader.noTabsBackground": "#1e3a5f",
+    "tab.activeForeground": "#FFFFFF",
+    "tab.inactiveForeground": "#FFFFFF"
+  }
+}

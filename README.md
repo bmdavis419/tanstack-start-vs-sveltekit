@@ -1,0 +1,3 @@
+# Tanstack Start VS SvelteKit
+
+Two really basic todo apps that work the exact same as an example...

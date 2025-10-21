@@ -1,0 +1,11 @@
+{
+  "workbench.colorCustomizations": {
+    "editorGroupHeader.tabsBackground": "#8B4513",
+    "editorGroupHeader.tabsBorder": "#8B4513",
+    "tab.activeBackground": "#8B4513",
+    "tab.inactiveBackground": "#6B3410",
+    "editorGroupHeader.noTabsBackground": "#8B4513",
+    "tab.activeForeground": "#FFFFFF",
+    "tab.inactiveForeground": "#FFFFFF"
+  }
+}
