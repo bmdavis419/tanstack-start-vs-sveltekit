@@ -7,34 +7,41 @@ type Todo = {
 	completed: boolean;
 };
 
-const DEFAULT_TODOS: Todo[] = [
-	{
-		id: crypto.randomUUID(),
-		name: 'Buy groceries',
-		completed: false
-	},
-	{
-		id: crypto.randomUUID(),
-		name: 'Buy mobile phone',
-		completed: false
-	},
-	{
-		id: crypto.randomUUID(),
-		name: 'Buy laptop',
-		completed: false
-	}
-];
+const getDefaultTodos = () => {
+	const DEFAULT_TODOS: Todo[] = [
+		{
+			id: crypto.randomUUID(),
+			name: 'Buy groceries',
+			completed: false
+		},
+		{
+			id: crypto.randomUUID(),
+			name: 'Buy mobile phone',
+			completed: false
+		},
+		{
+			id: crypto.randomUUID(),
+			name: 'Buy laptop',
+			completed: false
+		}
+	];
+	return DEFAULT_TODOS;
+};
 
-let todos: Todo[] = [...DEFAULT_TODOS];
+let todos: Todo[] = [];
 
 export const remoteResetTodos = command(async () => {
-	todos = [...DEFAULT_TODOS];
-	todos.forEach((t) => (t.completed = false));
+	const defaultTodos = getDefaultTodos();
+	todos = [...defaultTodos];
 	await remoteGetTodos().refresh();
 	return { success: true };
 });
 
 export const remoteGetTodos = query(async () => {
+	if (todos.length === 0) {
+		const defaultTodos = getDefaultTodos();
+		todos = [...defaultTodos];
+	}
 	return { todos };
 });
 

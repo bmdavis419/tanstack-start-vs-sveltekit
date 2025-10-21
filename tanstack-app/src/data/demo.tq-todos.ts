@@ -1,5 +1,4 @@
 import { createServerFn } from "@tanstack/react-start";
-import { randomUUID } from "crypto";
 import z from "zod";
 
 type Todo = {
@@ -8,25 +7,42 @@ type Todo = {
 	completed: boolean;
 };
 
-const todos: Todo[] = [
-	{
-		id: randomUUID(),
-		name: "Buy groceries",
-		completed: false,
+const getDefaultTodos = () => {
+	const DEFAULT_TODOS: Todo[] = [
+		{
+			id: crypto.randomUUID(),
+			name: "Buy groceries",
+			completed: false,
+		},
+		{
+			id: crypto.randomUUID(),
+			name: "Buy mobile phone",
+			completed: false,
+		},
+		{
+			id: crypto.randomUUID(),
+			name: "Buy laptop",
+			completed: false,
+		},
+	];
+	return DEFAULT_TODOS;
+};
+
+let todos: Todo[] = [];
+
+export const resetServerTodos = createServerFn({ method: "POST" }).handler(
+	() => {
+		const defaultTodos = getDefaultTodos();
+		todos = [...defaultTodos];
+		return { success: true };
 	},
-	{
-		id: randomUUID(),
-		name: "Buy mobile phone",
-		completed: false,
-	},
-	{
-		id: randomUUID(),
-		name: "Buy laptop",
-		completed: false,
-	},
-];
+);
 
 export const getServerTodos = createServerFn({ method: "GET" }).handler(() => {
+	if (todos.length === 0) {
+		const defaultTodos = getDefaultTodos();
+		todos = [...defaultTodos];
+	}
 	return { todos };
 });
 
@@ -53,7 +69,7 @@ export const addServerTodo = createServerFn({ method: "POST" })
 	.inputValidator(addTodoInputSchema)
 	.handler(async ({ data }) => {
 		const todo = {
-			id: randomUUID(),
+			id: crypto.randomUUID(),
 			name: data.name,
 			completed: false,
 		};

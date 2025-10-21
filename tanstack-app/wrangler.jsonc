@@ -1,13 +1,9 @@
 {
 	"$schema": "node_modules/wrangler/config-schema.json",
-	"name": "tanstack-vs-sveltekit-svelte",
-	"main": ".svelte-kit/cloudflare/_worker.js",
+	"name": "tanstack-vs-sveltekit-react",
+	"main": "@tanstack/react-start/server-entry",
 	"compatibility_flags": ["nodejs_compat"],
 	"compatibility_date": "2025-10-11",
-	"assets": {
-		"binding": "ASSETS",
-		"directory": ".svelte-kit/cloudflare"
-	},
 	"observability": {
 		"enabled": true
 	}
