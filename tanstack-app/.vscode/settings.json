@@ -33,12 +33,7 @@
     "source.organizeImports.biome": "explicit"
   },
   "workbench.colorCustomizations": {
-    "editorGroupHeader.tabsBackground": "#1e3a5f",
-    "editorGroupHeader.tabsBorder": "#1e3a5f",
-    "tab.activeBackground": "#1e3a5f",
-    "tab.inactiveBackground": "#0f1a2e",
-    "editorGroupHeader.noTabsBackground": "#1e3a5f",
-    "tab.activeForeground": "#FFFFFF",
-    "tab.inactiveForeground": "#FFFFFF"
+    "titleBar.activeBackground": "#1e3a5f",
+    "titleBar.activeForeground": "#FFFFFF"
   }
 }
