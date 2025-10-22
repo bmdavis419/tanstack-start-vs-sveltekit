@@ -62,7 +62,7 @@ export const remoteToggleTodo = command(toggleTodoInputSchema, async ({ id }) =>
 });
 
 const addTodoInputSchema = z.object({
-	name: z.string()
+	name: z.string().min(1, 'name is required').max(100, 'name is too long')
 });
 
 export const remoteAddTodo = form(addTodoInputSchema, async ({ name }) => {

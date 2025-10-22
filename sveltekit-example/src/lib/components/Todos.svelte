@@ -63,6 +63,9 @@
 				placeholder="Enter a new todo..."
 				class="w-full rounded-lg border border-white/20 bg-white/10 px-4 py-3 text-white placeholder-white/60 backdrop-blur-sm focus:border-transparent focus:ring-2 focus:ring-orange-400 focus:outline-none"
 			/>
+			{#each remoteAddTodo.fields.name.issues() as issue}
+				<p class="text-sm text-red-500">{issue.message}</p>
+			{/each}
 			<button
 				type="submit"
 				class="rounded-lg bg-orange-500 px-4 py-3 font-bold text-white transition-colors hover:bg-orange-600 disabled:cursor-not-allowed disabled:bg-orange-500/50"
