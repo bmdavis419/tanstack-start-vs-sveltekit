@@ -1,4 +1,5 @@
 "use server"
+import { cacheTag, updateTag } from "next/cache";
 import "server-only";
 
 import z from 'zod';
@@ -39,6 +40,8 @@ export async function resetTodos() {
 }
 
 export async function getTodos() {
+    "use cache"
+    cacheTag("todos")
 	if (todos.length === 0) {
 		const defaultTodos = getDefaultTodos();
 		todos = [...defaultTodos];
@@ -53,6 +56,7 @@ const toggleTodoInputSchema = z.object({
 type ToggleTodoInput = z.infer<typeof toggleTodoInputSchema>;
 
 export async function toggleTodo(input: ToggleTodoInput) {
+    updateTag("todos")
 	const { id } = toggleTodoInputSchema.parse(input);
 	const todo = todos.find((t) => t.id === id);
 	if (!todo) {
@@ -67,6 +71,7 @@ const addTodoInputSchema = z.object({
 });
 
 export async function addTodo(formData: FormData) {
+    updateTag("todos")
 	const rawFormData = {
 		name: formData.get('name')
 	};

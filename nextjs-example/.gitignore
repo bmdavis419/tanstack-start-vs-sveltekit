@@ -12,12 +12,6 @@
 
 .dev.vars
 
-.open-next/
-.open-next
-
-.wrangler/
-.wrangler
-
 # testing
 /coverage
 
